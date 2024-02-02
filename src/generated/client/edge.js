@@ -145,7 +145,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
@@ -155,6 +155,7 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -164,7 +165,8 @@ const config = {
     }
   },
   "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgPSAiLi4vc3JjL2dlbmVyYXRlZC9jbGllbnQiCn0KCmRhdGFzb3VyY2UgZGIgewogIHByb3ZpZGVyID0gInNxbGl0ZSIKICB1cmwgICAgICA9IGVudigiREFUQUJBU0VfVVJMIikKfQoKbW9kZWwgVXNlciB7CiAgaWQgICAgICAgICAgIEludCAgICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkKICB1c2VybmFtZSAgICAgU3RyaW5nICAgICBAdW5pcXVlCiAgZW1haWwgICAgICAgIFN0cmluZyAgICAgQHVuaXF1ZQogIHBhc3N3b3JkSGFzaCBTdHJpbmcKICBxdW90ZXMgICAgICAgUXVvdGVbXQogIGZhdm9yaXRlcyAgICBGYXZvcml0ZVtdCn0KCm1vZGVsIFF1b3RlIHsKICBpZCAgICAgICAgSW50ICAgICAgICBAaWQgQGRlZmF1bHQoYXV0b2luY3JlbWVudCgpKQogIHF1b3RlS2V5ICBTdHJpbmcgICAgIEB1bmlxdWUKICB0ZXh0ICAgICAgU3RyaW5nCiAgYXV0aG9yICAgIFN0cmluZwogIGNhdGVnb3J5ICBTdHJpbmcKICBjcmVhdG9ySWQgU3RyaW5nCiAgdXNlciAgICAgIFVzZXIgICAgICAgQHJlbGF0aW9uKGZpZWxkczogW2NyZWF0b3JJZF0sIHJlZmVyZW5jZXM6IFt1c2VybmFtZV0pCiAgRmF2b3JpdGUgIEZhdm9yaXRlW10KfQoKbW9kZWwgRmF2b3JpdGUgewogIGlkICAgICAgSW50ICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgcXVvdGVJZCBTdHJpbmcKICB1c2VySWQgIFN0cmluZwogIHF1b3RlICAgUXVvdGUgIEByZWxhdGlvbihmaWVsZHM6IFtxdW90ZUlkXSwgcmVmZXJlbmNlczogW3F1b3RlS2V5XSkKICB1c2VyICAgIFVzZXIgICBAcmVsYXRpb24oZmllbGRzOiBbdXNlcklkXSwgcmVmZXJlbmNlczogW3VzZXJuYW1lXSkKfQo=",
-  "inlineSchemaHash": "2d6df5bcfe22b829a0a5b0b7964f9c5aee2207c47deac304231aed23ad15a0ca"
+  "inlineSchemaHash": "2d6df5bcfe22b829a0a5b0b7964f9c5aee2207c47deac304231aed23ad15a0ca",
+  "noEngine": false
 }
 config.dirname = '/'
 
