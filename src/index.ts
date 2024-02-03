@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-// import { userRouter } from "./routes/user.router";
-// import { quoteRouter } from "./routes/quote.router";
-// import { favoritesRouter } from "./routes/favorites.router";
+import { userRouter } from "./routes/user.router";
+import { quoteRouter } from "./routes/quote.router";
+import { favoritesRouter } from "./routes/favorites.router";
 
 // env variable setup
 const envKeys = [
@@ -30,9 +30,9 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Soul Quotes API!");
 });
 
-// app.use(userRouter);
-// app.use(quoteRouter);
-// app.use(favoritesRouter);
+app.use(userRouter);
+app.use(quoteRouter);
+app.use(favoritesRouter);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
