@@ -30,6 +30,10 @@ RUN npx prisma generate
 # Copy application code
 COPY . .
 
+# # Run seed script here
+# COPY dist/src/api/seed.js ./
+# RUN npm prod-seed
+
 # Build application
 RUN npm run build
 
