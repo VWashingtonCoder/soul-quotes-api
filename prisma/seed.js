@@ -247,7 +247,7 @@ const seedDatabase = async () => {
       },
     ];
 
-    for (let id = 1; id < favorites.length; id++) { 
+    for (let id = 1; id < favorites.length + 1; id++) { 
       await prisma.favorite.upsert({
         where: {
           id

@@ -29,6 +29,7 @@ favoritesRouter.get("/favorites", authMiddleware, async (req, res) => {
 
   res.json({ favorites });
 });
+
 // Add New Favorite
 favoritesRouter.post(
   "/favorites",

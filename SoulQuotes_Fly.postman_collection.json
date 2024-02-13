@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "7c0bdba7-1a16-4119-97ae-e251092e12d2",
+		"name": "SoulQuotes_Fly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19700907"
+	},
+	"item": [
+		{
+			"name": "Admin Routes",
+			"item": [
+				{
+					"name": "Server Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "soul-quotes-api.fly.dev",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://soul-quotes-api.fly.dev/users",
+							"protocol": "http",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/users/3",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Favorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/favorites/all",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"favorites",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Anicoder1\",\r\n    \"email\": \"anime1@anime.com\",\r\n    \"password\": \"password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/users/create",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin_andre\",\r\n    \"password\": \"Us3rB00k$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/users/login",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quotes",
+			"item": [
+				{
+					"name": "Get All Quotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/quotes",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Quote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quoteKey\": \"funny-37\",\r\n    \"text\": \"a bird in the bush is better than a birs in the hand\",\r\n    \"author\": \"admin_andre\",\r\n    \"category\": \"funny\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/quotes",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Quote",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/quotes/26",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"quotes",
+								"26"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Get User Favorites",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/favorites",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Favorite",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"admin_andre\",\r\n    \"quoteId\": \"love-4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/favorites",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Favorite",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"admin_andre\",\r\n    \"quoteId\": \"love-4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://soul-quotes-api.fly.dev/favorites/5",
+							"protocol": "https",
+							"host": [
+								"soul-quotes-api",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"favorites",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

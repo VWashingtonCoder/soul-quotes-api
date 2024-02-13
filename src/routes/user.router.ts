@@ -18,7 +18,7 @@ userRouter.get("/users", async (req, res) => {
 
 // Create a new user
 userRouter.post(
-  "/users",
+  "/users/create",
   validateRequest({
     body: userSchema,
   }),
@@ -80,5 +80,20 @@ userRouter.post(
     res.json({ user, token });
   }
 );
+
+// Delete a user
+userRouter.delete("/users/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await prisma.user.delete({
+    where: {
+      id: parseInt(id),
+    },
+  });
+  if (!user) {
+    return res.status(401).json({ error: "Invalid user id" });
+  }
+
+  res.json({ user });
+});
 
 export { userRouter };
