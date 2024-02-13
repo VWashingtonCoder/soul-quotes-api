@@ -25,19 +25,18 @@ RUN npm ci --include=dev
 COPY prisma .
 RUN npx prisma generate
 
+# Run seed script
+COPY prisma/seed.js ./prisma/
+RUN node ./prisma/seed.js
+
 # Copy application code
 COPY . .
 
 # Build application
 RUN npm run build
 
-# Run seed script here
-COPY ./prisma/seed.js ./
-RUN node ./seed.js
-
 # Remove development dependencies
 RUN npm prune --omit=dev
-
 
 # Final stage for app image
 FROM base
@@ -58,7 +57,7 @@ VOLUME /data
 ENTRYPOINT [ "/app/docker-entrypoint.js" ]
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
+EXPOSE 5000
 ENV DATABASE_URL="file:///data/sqlite.db"
 
 CMD [ "npm", "run", "start" ]
