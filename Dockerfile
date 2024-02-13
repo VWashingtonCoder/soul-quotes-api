@@ -27,7 +27,7 @@ RUN npx prisma generate
 
 # Run seed script
 COPY prisma/seed.js ./prisma/
-RUN node ./prisma/seed.js
+RUN node prisma/seed.js
 
 # Copy application code
 COPY . .

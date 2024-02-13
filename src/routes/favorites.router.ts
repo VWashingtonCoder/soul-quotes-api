@@ -5,6 +5,14 @@ import { validateRequest } from "zod-express-middleware";
 import { deleteSchema, favoriteSchema } from "../zod/z.params.schemas";
 
 const favoritesRouter = Router();
+// Get All Favorites
+favoritesRouter.get("/favorites/all", async (req, res) => {
+  const favorites = await prisma.favorite.findMany();
+  if (!favorites) {
+    return res.status(404).json({ error: "No favorites found" });
+  }
+  res.json({ favorites });
+});
 
 // Get User Favorites
 favoritesRouter.get("/favorites", authMiddleware, async (req, res) => {

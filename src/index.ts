@@ -6,8 +6,9 @@ import { favoritesRouter } from "./routes/favorites.router";
 
 // env variable setup
 const envKeys = [
-  "ADMIN_PASSWORD",
   "DATABASE_URL",
+  "ADMIN_PASSWORD",
+  "USER_PASSWORD",
   "JWT_SECRET",
   "PORT"
 ];
