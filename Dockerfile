@@ -1,5 +1,3 @@
-# syntax = docker/dockerfile:1
-
 # Adjust NODE_VERSION as desired
 FROM node:21-alpine3.18 as base
 
@@ -30,12 +28,12 @@ RUN npx prisma generate
 # Copy application code
 COPY . .
 
-# # Run seed script here
-# COPY dist/src/api/seed.js ./
-# RUN npm prod-seed
-
 # Build application
 RUN npm run build
+
+# Run seed script here
+COPY ./prisma/seed.js ./
+RUN node ./seed.js
 
 # Remove development dependencies
 RUN npm prune --omit=dev
