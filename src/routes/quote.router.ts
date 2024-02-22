@@ -6,7 +6,7 @@ import { deleteSchema, quoteSchema } from "../zod/z.params.schemas";
 
 const quoteRouter = Router();
 // Get all quotes
-quoteRouter.get("/quotes", async (req, res) => {
+quoteRouter.get("/", async (req, res) => {
   const quotes = await prisma.quote.findMany();
 
   if (!quotes) {
@@ -18,7 +18,7 @@ quoteRouter.get("/quotes", async (req, res) => {
 
 // Create a new quote
 quoteRouter.post(
-  "/quotes",
+  "/",
   authMiddleware,
   validateRequest({
     body: quoteSchema,
@@ -47,7 +47,7 @@ quoteRouter.post(
 
 // Delete a quote
 quoteRouter.delete(
-  "/quotes/:id",
+  "/:id",
   authMiddleware,
   validateRequest({
     params: deleteSchema,

@@ -11,14 +11,14 @@ import {
 const userRouter = Router();
 
 // Get All Users
-userRouter.get("/users", async (req, res) => {
+userRouter.get("/", async (req, res) => {
   const users = await prisma.user.findMany();
   res.json({ users });
 });
 
 // Create a new user
 userRouter.post(
-  "/users/create",
+  "/create",
   validateRequest({
     body: userSchema,
   }),
@@ -58,7 +58,7 @@ userRouter.post(
 
 // Login a user
 userRouter.post(
-  "/users/login",
+  "/login",
   async (req, res) => {
     const { username, password } = req.body;
 
@@ -82,7 +82,7 @@ userRouter.post(
 );
 
 // Delete a user
-userRouter.delete("/users/:id", async (req, res) => {
+userRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const user = await prisma.user.delete({
     where: {

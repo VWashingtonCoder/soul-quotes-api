@@ -6,7 +6,7 @@ import { deleteSchema, favoriteSchema } from "../zod/z.params.schemas";
 
 const favoritesRouter = Router();
 // Get All Favorites
-favoritesRouter.get("/favorites/all", async (req, res) => {
+favoritesRouter.get("/all", async (req, res) => {
   const favorites = await prisma.favorite.findMany();
   if (!favorites) {
     return res.status(404).json({ error: "No favorites found" });
@@ -15,7 +15,7 @@ favoritesRouter.get("/favorites/all", async (req, res) => {
 });
 
 // Get User Favorites
-favoritesRouter.get("/favorites", authMiddleware, async (req, res) => {
+favoritesRouter.get("/", authMiddleware, async (req, res) => {
   const userId = (req as UserForToken).user?.username || "";
   const favorites = await prisma.favorite.findMany({
     where: {
@@ -32,7 +32,7 @@ favoritesRouter.get("/favorites", authMiddleware, async (req, res) => {
 
 // Add New Favorite
 favoritesRouter.post(
-  "/favorites",
+  "/",
   authMiddleware,
   validateRequest({
     body: favoriteSchema,
@@ -57,7 +57,7 @@ favoritesRouter.post(
 
 // Delete Favorite
 favoritesRouter.delete(
-  "/favorites/:id",
+  "/:id",
   authMiddleware,
   validateRequest({
     params: deleteSchema,
@@ -80,8 +80,8 @@ favoritesRouter.delete(
       },
     });
     if (!deletedFavorite) {
-        return res.status(500).json({ error: "Error deleting favorite" });
-      }
+      return res.status(500).json({ error: "Error deleting favorite" });
+    }
 
     res.json("Favorite deleted");
   }
